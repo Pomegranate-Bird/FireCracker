@@ -2,6 +2,9 @@ import serial
 import numpy
 import matplotlib as plt
 
+
+ser = serial.Serial(port="")
+
 # Get data from the MCU 
 
 # Keep most of the logic, fire detection logic on Python
