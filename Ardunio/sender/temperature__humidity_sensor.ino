@@ -6,11 +6,15 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include "Adafruit_SHT31.h"
-
+#define dev true // Usefule for non-ESP32-Wroom32e boards wihout dedicated I2C ports
 
 Adafruit_SHT31 sht31 = Adafruit_SHT31();
 
 void initialize_temp_sensor() {
+
+  if(dev)
+    Wire.begin(8,9); // SDA, SCL
+
   while (!Serial)
     delay(10);     // will pause Zerountil serial console opens
 
