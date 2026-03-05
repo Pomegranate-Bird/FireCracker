@@ -1,9 +1,16 @@
 import serial 
-import numpy
 import matplotlib as plt
 
+# Creating a serial object
+ser = serial.Serial(port="/dev/ttyUSB0", baudrate=115200)
 
-ser = serial.Serial(port="")
+# Loop to continously read data from base node via serial port 
+while True:
+    # Value needs to be decoded
+    value = ser.readline() # Grab all the data up until newline 
+    value_str = str(value, 'UTF-8')
+    print(value_str)
+
 
 # Get data from the MCU 
 
