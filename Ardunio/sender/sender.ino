@@ -5,6 +5,7 @@
  const int id = 2;
  float temp = 0;
  float hum = 0;
+ float air_quality_reading = 0;
 
 // REPLACE WITH YOUR RECEIVER MAC Address
 uint8_t broadcastAddress[] = {0xE4, 0x65, 0xB8, 0x14, 0xA2,0xB4};
@@ -15,6 +16,7 @@ typedef struct struct_message {
   int id; // Unqiue identifier for each board 
   float temperature;
   float humidity;
+  float pm25;
 } struct_message;
 
 // Create a struct_message called myData
@@ -25,16 +27,21 @@ esp_now_peer_info_t peerInfo;
 // Callback function that is called when data is sent
 void OnDataSent(const wifi_tx_info_t *info, esp_now_send_status_t status) {
   // Only useful for debugging: When sending data for Python Processing keep uncommented 
+  blink();
   Serial.print("\r\nLast Packet Send Status:\t");
   Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
 }
  
 void setup() {
   Serial.begin(115200); // Begin serial communicaitons 
+
+  // Initializing Sensors:
   set_led(); // Initializing LED
   initialize_temp_sensor(); //Initializing temperature & humidity sensor 
-  // Set device as a Wi-Fi Station
-  WiFi.mode(WIFI_STA);
+  initializePM25(); //Initializing Pm2.5 Sesnor
+
+  //ESP-NOW Communication 
+  WiFi.mode(WIFI_STA); // Set device as a Wi-Fi Station
 
   // Init ESP-NOW
   if (esp_now_init() != ESP_OK) {
@@ -63,23 +70,31 @@ void loop() {
   myData.id = id;
 
   // Gather data from sensors 
-  gather_temp(); // Get temperature and humidity values
+  gather_temp_humidity(); // Get temperature and humidity values
+  gather_pm25_data(); // Getting Air Quality measurements 
+
 
   // Store data obtained from sensors in data structure 
   myData.temperature = temp;
   myData.humidity = hum;
+  myData.pm25 = air_quality_reading;
+
 
   // Send message via ESP-NOW
   esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));
    
   if (result == ESP_OK) {
-    blink();
-    Serial.println("Data sent with success");
+
+    blink(); // Blink if the message was succesfully sent 
+    //Serial.println("Data sent with success");
+
     // Printing the data sent 
     Serial.print("Temperature:");
     Serial.println(temp);
     Serial.print("Humidity:");
     Serial.println(hum);
+    Serial.print("PM2.5:");
+    Serial.println(air_quality_reading);
   }
   else {
     Serial.println("Error sending the data");

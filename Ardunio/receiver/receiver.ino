@@ -9,6 +9,7 @@ typedef struct struct_message {
     int id;
     float temperature;
     float humidity;
+    float pm25;
 } struct_message;
 
 // Creating an array that contains each esp32 
@@ -25,6 +26,8 @@ void OnDataRecv(const esp_now_recv_info_t *info,
 
   Serial.printf("Board %d: T=%.2f  H=%.2f\n",
                 msg.id, msg.temperature, msg.humidity);
+  Serial.printf("Board %d: PM2.5= %.2f\n",
+                msg.id, msg.pm25);
   }
 
 void setup() {

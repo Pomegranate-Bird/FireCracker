@@ -6,7 +6,7 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include "Adafruit_SHT31.h"
-#define dev true // Usefule for non-ESP32-Wroom32e boards wihout dedicated I2C ports
+ #define dev false // Usefule for non-ESP32-Wroom32e boards wihout dedicated I2C ports
 
 Adafruit_SHT31 sht31 = Adafruit_SHT31();
 
@@ -26,7 +26,7 @@ void initialize_temp_sensor() {
 }
 
 
-void gather_temp() {
+void gather_temp_humidity() {
     //Temperature is in celcius 
     temp = sht31.readTemperature();
     hum = sht31.readHumidity();
