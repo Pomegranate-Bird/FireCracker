@@ -2,13 +2,15 @@
 #include <WiFi.h>
 #include <Wire.h> // I2C communication Protocol
 
- const int id = 2;
+ const int id = 2; // Change for each ESP32 
  float temp = 0;
  float hum = 0;
  float air_quality_reading = 0;
+ unsigned long curr_time;
+ unsigned long buffer;
 
 // REPLACE WITH YOUR RECEIVER MAC Address
-uint8_t broadcastAddress[] = {0xE4, 0x65, 0xB8, 0x14, 0xA2,0xB4};
+uint8_t broadcastAddress[] = {0x10, 0x20, 0xBA, 0x0D, 0xB4,0xC8};
 
 // Structure example to send data
 // Must match the receiver structure
@@ -82,22 +84,11 @@ void loop() {
 
   // Send message via ESP-NOW
   esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));
-   
-  if (result == ESP_OK) {
 
-    blink(); // Blink if the message was succesfully sent 
-    //Serial.println("Data sent with success");
 
-    // Printing the data sent 
-    Serial.print("Temperature:");
-    Serial.println(temp);
-    Serial.print("Humidity:");
-    Serial.println(hum);
-    Serial.print("PM2.5:");
-    Serial.println(air_quality_reading);
+  curr_time = millis();
+  if (result == ESP_OK && curr_time - buffer >= 1000) {
+     buffer = curr_time;
+    
   }
-  else {
-    Serial.println("Error sending the data");
-  }
-  delay(100);
 }
