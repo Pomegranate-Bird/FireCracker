@@ -1,10 +1,7 @@
 import serial # Enables serial communications with base node SS
-import matplotlib as plt
 from collections import deque # Utilizing Python's Circular List 
 import time
 import csv # For data storage 
-import os
-
 
 
 class FireCracker():
@@ -58,7 +55,7 @@ Sensor2 = FireCracker(2, buffer_size=1000)
 
 # Creating a csv file and writing to it ("a": Append mode
 with open("f2_dataset2.csv", "a", newline="") as f: 
-    # print("Writing CSV to:", os.path.abspath(filename))
+    
     writer = csv.writer(f)
     # Loop to continously read data from base node via serial port 
     while True:

@@ -24,10 +24,9 @@ void OnDataRecv(const esp_now_recv_info_t *info,
 
   boards[msg.id - 1] = msg; // No iterating, instead we store the contents of the material 
 
-  Serial.printf("Board %d: T=%.2f  H=%.2f\n",
-                msg.id, msg.temperature, msg.humidity);
-  Serial.printf("Board %d: PM2.5= %.2f\n",
-                msg.id, msg.pm25);
+  Serial.printf("%d,%.2f,%.2f,%.2f\n" ,
+                msg.id, msg.temperature, msg.humidity, msg.pm25);
+  
   }
 
 void setup() {
