@@ -1,16 +1,12 @@
-
-
-YouTube video demonstrating prototype design and addressing design questions
-
-1. What is the use case that you are trying to address? 
-    Improving emergency response times and early wildfire detection and prevention within rural communities.
-
+1. What problems do we want to address with our FireCrackers? 
+    Improving emergency response times and early wildfire detection within rural communities.
 2. Why is this problem worth addressing?
-    Rural communities lack the necessary infastructure to detect wildifres early until it's too late. We identified the need for a product that was open source, cheap to manufacture and easily reproducable that could address this problem. The problem is worth addressing not only because it's personal but because we could help all rural communities around the globe. On a personal note the problem is worth addressing since there have been many products that lack the affordability or commitment to changing rural communities. Additionally I have experinced having local wildfires near my home and understand the feeling of dread, the feeling of not only potentially losing your home but the life built withing it. Which could've been prevented through an early wildfire detection system.
-3. Who is the intended user(s)?
+    Rural communities lack the necessary infastructure to detect wildifres until it's too late. 
+    We identified the need for a product that was open source, cheap to manufacture and easily reproducable that would address early-wildfire prevention. The problem is worth addressing not only because it's personal but because we could help all rural communities around the globe. On a personal note the problem is worth addressing since there have been many products that lack the affordability or commitment to changing rural communities. Additionally I have experinced having local wildfires near my home and understand the feeling of dread, the feeling of not only potentially losing your home but the life built withing it. Which could've been prevented through an early wildfire detection system.
+3. Who are the intended users?
     The intended users are the everyday person in a rural community. The purpose of our product is to provide a cheap and cost effective solution to creating a set of fire detection stations across a rural community, that could be built by aynone. An additional user of our FireCrackers will be weather APIs such as Synoptic data, the largest global repository of weather and eviroment data. 
-4. How is your solution addressing the needs of the user?
-    Our FireCracker sensor will be addressing the needs  rural communities by providing a low cost sensor that could detect wildfires during the smoldering growth phase. Additionally through a collaboration with Synoptic data we hope to integrate our live data into their global weather and eviromental data repository, allowing our data to be used for research and other fire detection platforms. Most importantly the purpose of our data aquistion through our FireCracker sensors is to give the La Jolla Indian reservation the ability to detect early fires, and Cal Fire with on the ground live data during power outtages and Wildifres. 
+4. How FireCrackers are an effective solution?
+    FireCracker sensors will address the needs of rural communities by providing an early-fire detection system at a low cost, transperency through an open source model, and live fire updates and warnings for users. Our FireCrackers are low-power, and self-sustaining sensors meaning they can operate independently of infastructure, making them robust during strong weather conditons such as strong winds, but importantly during wildfires. Additionally the data collected through FireCracker sensors will provide users with important enviromental metrics such as temperature, humidity and air quality, important metrics vital for firefighting operations. 
 
 FireCracker Design thought process:
 
