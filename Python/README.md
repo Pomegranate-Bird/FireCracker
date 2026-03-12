@@ -42,6 +42,4 @@ When discussing the design of our FireCrackers sensors, we came to the conclusio
 2. serial
 3. csv
 
-#### Division of work:
-Marvin:
-- Programmed
+
