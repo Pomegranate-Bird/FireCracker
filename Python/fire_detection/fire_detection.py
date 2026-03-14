@@ -94,7 +94,7 @@ with open("f2_dataset2.csv", "a", newline="") as f:
           Sensor2.avg_temp, Sensor2.avg_humidity, Sensor2.avg_pm25 = Sensor2.avg_all_data()
         
         print(Sensor2.avg_temp, Sensor2.avg_humidity, Sensor2.avg_pm25)
-        if Sensor2.avg_temp > 25.0 and Sensor2.avg_humidity < 25 and Sensor2.avg_pm25 > 30:
+        if Sensor2.avg_temp > 25.0 and Sensor2.avg_humidity < 50 and Sensor2.avg_pm25 > 30:
             print(f"Warning Potential Fire at Node:{node_id}")
         
         # Storing everything in CSV file
