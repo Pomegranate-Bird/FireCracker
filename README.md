@@ -1,11 +1,10 @@
-# PID: A19149079    
+# PID: A19149079
 # Name: Marvin Cruz Gomez
 
 # PID: A19185386
 # Name: Caleb Ong
 
-## Slides 
-
+## FireCracker Slides
 https://docs.google.com/presentation/d/1zmcKbAPm6wtAK6BY36sYZwY3UlBFZXPV3XgwUgp0h9M/edit?slide=id.g3c0a05cde5f_0_2180#slide=id.g3c0a05cde5f_0_2180
 
 1. What problems do we want to address with our FireCrackers? 
@@ -22,6 +21,23 @@ FireCracker Design thought process:
 5. README discussion of your solution design
 When discussing the design of our FireCrackers sensors, we came to the conclusion that we needed to create sensors that were independent of infrastructure. We could not rely on receiving a source of external power, as it was vulnerable to power outtages which would render them useless, which occurs often in the La Jolla reseravtion. SDG&E (San Diego Gas & Electric) utilizes planned power outtages during strong wind condtions as a preventive measure to prevent the rapid spread of a potential wildfire. Therefore the FireCracker has to be self-sustaining and have low-power consumption, all while maximizing area coverage. By inspecting other proposed solutions to the problem of early wildfire detection we were able to discover that our hypothesis worked, albeit that some of our sensors were not needed, such as a smoke sensor which fail outdoors. By utilizing low-power electronics and a low-power communication protocol and periodic sensor measurements, we could reliably utilze solar panels to keep our senors online making them self-reliant. We still had to come up with a solution to address two problems, Fire detection and sensor Placement. We discovered that we could utilize a node cluster architecture to detect wildifres and cross validate. By placing nodes some distance away from each other but still having an area overlap, we could cover more area and utilize one sensor's measurements to cross validate another node's wildfire warning. Another benefit that came from utilizing a node architecture was all our nodes would send their data to a base node, which would carry out the data processing and computations to detect forest fires, saving all the other sensors from expending power needed for constant monitoring. 
 
+
+[FireCracker Overview](https://www.youtube.com/watch?v=OKe77LQL5o8)
+[FireCracker Demo](https://www.youtube.com/watch?v=O5Td7177wPE)
+
+7. Division of work
+- Marvin:
+    - Researched on forest fire detection and data
+    - Worked on presentation
+    - Got ESP32's solar panels and microprocessors
+    - Incorporated sensors with board
+    - Enabled communication across boards
+    - Added thresholding to detect "smoldering" fires
+- Caleb:
+    - Researched on forest fire detection methods
+    - Worked on presentation
+    - Got PM sensors and charging battery modules
+    - Worked on space invaders project
 
 
 #### Python Dependencies:
